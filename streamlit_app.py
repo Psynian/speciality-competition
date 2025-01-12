@@ -25,3 +25,6 @@ st.write(
 st.write(len(tables))
 
 st.dataframe(tables[0])
+st.dataframe(tables[1])
+st.dataframe(tables[2])
+st.dataframe(tables[3])
