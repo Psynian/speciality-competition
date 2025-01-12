@@ -8,7 +8,7 @@ header = {
   "X-Requested-With": "XMLHttpRequest"
 }
 
-
+key = 'Speciality and level'
 origins = ['UK','EU', 'Rest of the World']
 
 r = requests.get(url, headers=header)
@@ -16,6 +16,8 @@ tables = pd.read_html(r.text)
 dump = [x.replace("<5","4",inplace=True) for x in tables]
 dump = [x.drop("Non medical",axis=1,inplace=True) for x in tables]
 dump = [table[x].astype('int64',copy=False) for x in origins for table in tables]
+dump = [table.set_index(key,inplace=True) for table in tables]
+
 
 
 
