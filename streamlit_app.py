@@ -24,6 +24,10 @@ st.write(
 
 st.write(len(tables))
 
+tables[0].replace("<5","4")
+
+
+
 st.dataframe(tables[0])
 st.dataframe(tables[1])
 st.dataframe(tables[2])
