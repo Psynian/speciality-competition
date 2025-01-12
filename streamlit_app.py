@@ -27,4 +27,4 @@ st.dataframe(tables[2])
 st.dataframe(tables[3])
 
 
-st.dataframe(tables[0]/tables[1])
+st.dataframe(tables[1].div(tables[0]))
