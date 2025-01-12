@@ -17,7 +17,7 @@ dump = [x.replace("<5","4",inplace=True) for x in tables]
 dump = [x.drop("Non medical",axis=1,inplace=True) for x in tables]
 
 
-dump = [ tables[0][x].astype('int64',copy=False)  for x in origins]
+dump = [ table[x].astype('int64',copy=False) for x in origins for table in tables]
 
 
 
