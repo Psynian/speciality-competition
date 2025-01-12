@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+import pandas as pd
 from bs4 import BeautifulSoup
 
 URL = "https://medical.hee.nhs.uk/medical-training-recruitment/medical-specialty-training/equality-and-diversity/equality-and-diversity-2023-recruitment-data/country-of-qualification-2023-recruitment-data"
