@@ -8,7 +8,7 @@ header = {
   "X-Requested-With": "XMLHttpRequest"
 }
 
-key = 'Speciality and level'
+key = 'Specialty and level'
 origins = ['UK','EU', 'Rest of the World']
 
 r = requests.get(url, headers=header)
