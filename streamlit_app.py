@@ -12,7 +12,7 @@ r = requests.get(url, headers=header)
 tables = pd.read_html(r.text)
 dump = [x.replace("<5","4",inplace=True) for x in tables]
 
-tables[0].drop("Non medical",axis=1)
+tables[0].drop("Non medical",axis=1,inplace=True)
 
 st.dataframe(tables[0])
 st.dataframe(tables[1])
