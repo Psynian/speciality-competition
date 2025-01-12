@@ -24,7 +24,7 @@ st.write(
 
 st.write(len(tables))
 
-tables[0].replace("<5","4")
+tables[0].replace("<5","4",inplace=True)
 
 
 
