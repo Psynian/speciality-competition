@@ -26,5 +26,7 @@ st.dataframe(tables[1])
 st.dataframe(tables[2])
 st.dataframe(tables[3])
 
+st.write(tables[0].index)
+
 
 st.dataframe(tables[1].div(tables[0]))
