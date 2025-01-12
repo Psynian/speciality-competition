@@ -8,11 +8,18 @@ header = {
   "X-Requested-With": "XMLHttpRequest"
 }
 
+
+origins = ['UK','EU', 'Rest of the World']
+
 r = requests.get(url, headers=header)
 tables = pd.read_html(r.text)
 dump = [x.replace("<5","4",inplace=True) for x in tables]
+dump = [x.drop("Non medical",axis=1,inplace=True) for x in tables]
 
-tables[0].drop("Non medical",axis=1,inplace=True)
+
+dump = [ tables[0][x].astype('int64',copy=False)  for x in origins]
+
+
 
 st.dataframe(tables[0])
 st.dataframe(tables[1])
