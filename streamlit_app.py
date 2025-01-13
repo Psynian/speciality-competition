@@ -47,6 +47,8 @@ competition = data[numerator]/data[denominator]
 competition['UK vs Rest of the World'] = competition[origins[2]]/ competition[origins[0]]
 st.dataframe(competition)
 
+st.bar_chart(competition,y='UK vs Rest of the World')
+
 
 col1, col2 = st.columns(2)
 
