@@ -25,11 +25,15 @@ def get_data():
       tables[x] = tables[x].astype('int')
   return tables
 
+
+
+
 tables = get_data()
 for x in range(len(tables)):
    st.write(tables[x].attrs['name'])
    st.dataframe(tables[x])
    st.write(tables[x].dtypes)
 
-
+st.write("Competition Ratios")
+st.dataframe(tables[0]/tables[3])
 
