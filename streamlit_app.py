@@ -41,17 +41,13 @@ denominator = st.selectbox(
    "Denominator",
    data.keys()
 )
-
-st.write("You selected:", numerator)
-st.write("You selected:", denominator)
-
-for x,y in data.items():
-   st.write(x)
-   st.dataframe(y)
    
-st.write("Competition Ratios: " + numerator + " vs " + denominator)
+st.write("Competition Ratios: " + numerator + "/" + denominator)
 competition = data[numerator]/data[denominator]
+competition['UK vs Rest of the World'] = competition[origins[2]]/ competition[origins[0]]
 st.dataframe(competition)
+
+
 col1, col2 = st.columns(2)
 
 with col1:
