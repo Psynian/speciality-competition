@@ -22,7 +22,7 @@ def get_data():
 
   for x in range(len(tables)):
       tables[x].attrs['name'] = table_names[x]
-      tables[x] = tables[x].dtypes('int')
+      tables[x] = tables[x].astype('int')
   return tables
 
 tables = get_data()
