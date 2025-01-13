@@ -32,6 +32,6 @@ st.dataframe(tables[2])
 st.dataframe(tables[3])
 
 st.write(tables[0].index)
-st.write(tables[0].name)
+st.write(tables[0].attrs)
 
 
