@@ -30,6 +30,8 @@ def get_data():
 
 data = get_data()
 
+st.set_page_config(layout="wide")
+
 numerator = st.selectbox(
     "Numerator",
     data.keys(),
@@ -48,7 +50,6 @@ for x,y in data.items():
    st.dataframe(y)
    
 st.write("Competition Ratios: " + numerator + " vs " + denominator)
-st.set_page_config(layout="wide")
 competition = data[numerator]/data[denominator]
 st.dataframe(competition)
 col1, col2 = st.columns(2)
