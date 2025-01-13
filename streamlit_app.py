@@ -23,7 +23,7 @@ def get_data():
   dump = [table.set_index(key,inplace=True) for table in tables]
   return tables
 
-
+tables = get_data()
 
 
 st.dataframe(tables[0])
