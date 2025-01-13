@@ -40,7 +40,7 @@ numerator = st.selectbox(
 denominator = st.selectbox(
    "Denominator",
    index=3,
-   data.keys()
+   options=data.keys()
 )
    
 st.write("Competition Ratios: " + numerator + "/" + denominator)
