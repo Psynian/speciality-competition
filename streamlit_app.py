@@ -4,7 +4,7 @@ import pandas as pd
 
 key = 'Specialty and level'
 origins = ['UK','EU', 'Rest of the World']
-
+table_names = ['Applications made','Appointable applicants','Offers mades','Offers acce[ted]']
 
 @st.cache_resource
 def get_data():
@@ -14,7 +14,6 @@ def get_data():
   "X-Requested-With": "XMLHttpRequest"
 }
 
-
   r = requests.get(url, headers=header)
   tables = pd.read_html(r.text)
   dump = [x.replace("<5","4",inplace=True) for x in tables]
@@ -22,18 +21,14 @@ def get_data():
   dump = [table[x].astype('int64',copy=False) for x in origins for table in tables]
   dump = [table.set_index(key,inplace=True) for table in tables]
 
-  tables[0].attrs['name'] = "Applications made"
+  for x in range(len(table_names)):
+      tables[0].attrs['name'] = table_names[x]
   return tables
 
 tables = get_data()
+for x in range(len(tables)):
+   st.write(tables[x].attrs['name'])
+   st.dataframe(tables[x])
 
-
-st.dataframe(tables[0])
-st.dataframe(tables[1])
-st.dataframe(tables[2])
-st.dataframe(tables[3])
-
-st.write(tables[0].index)
-st.write(tables[0].attrs)
 
 
