@@ -33,7 +33,7 @@ def get_data():
 
 
 data = get_data()
-for (x,y) in data:
+for x,y in data.items:
    st.write(x)
    st.dataframe(y)
    
