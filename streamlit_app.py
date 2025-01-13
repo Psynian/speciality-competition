@@ -22,7 +22,7 @@ def get_data():
   dump = [table.set_index(key,inplace=True) for table in tables]
 
   for x in range(len(table_names)):
-      tables[0].attrs['name'] = table_names[x]
+      tables[x].attrs['name'] = table_names[x]
   return tables
 
 tables = get_data()
