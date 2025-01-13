@@ -21,6 +21,8 @@ def get_data():
   dump = [x.drop("Non medical",axis=1,inplace=True) for x in tables]
   dump = [table[x].astype('int64',copy=False) for x in origins for table in tables]
   dump = [table.set_index(key,inplace=True) for table in tables]
+
+  tables[0].attrs['name'] = "Applications made"
   return tables
 
 tables = get_data()
