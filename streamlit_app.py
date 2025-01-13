@@ -8,6 +8,9 @@ table_names = ['Applications made','Appointable applicants','Offers mades','Offe
 
 @st.cache_resource
 def get_data():
+
+  data = {}
+
   url = 'https://medical.hee.nhs.uk/medical-training-recruitment/medical-specialty-training/equality-and-diversity/equality-and-diversity-2023-recruitment-data/country-of-qualification-2023-recruitment-data'
   header = {
   "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.75 Safari/537.36",
@@ -22,18 +25,19 @@ def get_data():
 
   for x in range(len(tables)):
       tables[x].attrs['name'] = table_names[x]
-      tables[x] = tables[x].astype('int')
-  return tables
+      data[table_names[x]] = tables[x].astype('int')
+
+  return data
 
 
 
 
-tables = get_data()
-for x in range(len(tables)):
-   st.write(tables[x].attrs['name'])
-   st.dataframe(tables[x])
-   st.write(tables[x].dtypes)
+data = get_data()
+for (x,y) in data:
+   st.write(x)
+   st.dataframe(y)
+   
 
 st.write("Competition Ratios")
-st.dataframe(tables[0]/tables[3])
+st.dataframe(data[0]/data[3])
 
