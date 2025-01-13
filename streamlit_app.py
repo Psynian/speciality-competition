@@ -19,10 +19,10 @@ def get_data():
   dump = [x.replace("<5","4",inplace=True) for x in tables]
   dump = [x.drop("Non medical",axis=1,inplace=True) for x in tables]
   dump = [table.set_index(key,inplace=True) for table in tables]
-  dump = [table.astype('int',copy=False) for table in tables]
 
-  for x in range(len(table_names)):
+  for x in range(len(tables)):
       tables[x].attrs['name'] = table_names[x]
+      tables[x] = tables[x].dtypes('int')
   return tables
 
 tables = get_data()
