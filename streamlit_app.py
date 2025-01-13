@@ -4,7 +4,7 @@ import pandas as pd
 
 key = 'Specialty and level'
 origins = ['UK','EU', 'Rest of the World']
-table_names = ['Applications made','Appointable applicants','Offers mades','Offers accepted]']
+table_names = ['Applications made','Appointable applicants','Offers mades','Offers accepted']
 
 @st.cache_resource
 def get_data():
@@ -33,11 +33,23 @@ def get_data():
 
 
 data = get_data()
+
+numerator = st.selectbox(
+    "Numerator",
+    data.keys,
+)
+
+denominator = st.selectbox(
+   "Denominator",
+   data.keys
+)
+
+st.write("You selected:", numerator)
+st.write("You selected:", denominator)
+
 for x,y in data.items():
    st.write(x)
    st.dataframe(y)
    
-
 st.write("Competition Ratios")
-st.dataframe(data[0]/data[3])
-
+st.dataframe(data[numerator]/data[denominator])
