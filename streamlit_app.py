@@ -32,6 +32,9 @@ data = get_data()
 
 st.set_page_config(layout="wide")
 
+st.header('UK vs EU and international graduates competition for training places')
+st.write('Data is pulled from https://medical.hee.nhs.uk/medical-training-recruitment/medical-specialty-training/equality-and-diversity/equality-and-diversity-2023-recruitment-data/country-of-qualification-2023-recruitment-data')
+
 numerator = st.selectbox(
     "Numerator",
     data.keys(),
@@ -43,6 +46,7 @@ denominator = st.selectbox(
    options=data.keys()
 )
    
+
 st.write("Competition Ratios: " + numerator + "/" + denominator)
 competition = data[numerator]/data[denominator]
 competition['UK vs Rest of the World'] = competition[origins[2]]/ competition[origins[0]]
