@@ -36,12 +36,12 @@ data = get_data()
 
 numerator = st.selectbox(
     "Numerator",
-    data.keys,
+    data.keys(),
 )
 
 denominator = st.selectbox(
    "Denominator",
-   data.keys
+   data.keys()
 )
 
 st.write("You selected:", numerator)
