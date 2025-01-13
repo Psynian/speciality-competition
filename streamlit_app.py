@@ -46,6 +46,8 @@ denominator = st.selectbox(
 st.write("Competition Ratios: " + numerator + "/" + denominator)
 competition = data[numerator]/data[denominator]
 competition['UK vs Rest of the World'] = competition[origins[2]]/ competition[origins[0]]
+
+st.write('UK vs rest of the world is how much more competitive it is for an IMG then a UK graduate. Where a box is empty = 0 successful applicants.')
 st.dataframe(competition)
 
 st.bar_chart(competition,y='UK vs Rest of the World')
