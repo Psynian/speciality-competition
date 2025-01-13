@@ -4,7 +4,7 @@ import pandas as pd
 
 key = 'Specialty and level'
 origins = ['UK','EU', 'Rest of the World']
-table_names = ['Applications made','Appointable applicants','Offers mades','Offers acce[ted]']
+table_names = ['Applications made','Appointable applicants','Offers mades','Offers accepted]']
 
 @st.cache_resource
 def get_data():
@@ -29,6 +29,7 @@ tables = get_data()
 for x in range(len(tables)):
    st.write(tables[x].attrs['name'])
    st.dataframe(tables[x])
+   st.write(tables[x].dtypes)
 
 
 
