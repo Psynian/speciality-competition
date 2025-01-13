@@ -38,7 +38,7 @@ numerator = st.selectbox(
 )
 
 denominator = st.selectbox(
-   "Denominator",
+   "Denominator",index='Appointable applicants',
    data.keys()
 )
    
