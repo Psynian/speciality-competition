@@ -26,11 +26,7 @@ def get_data():
   for x in range(len(tables)):
       tables[x].attrs['name'] = table_names[x]
       data[table_names[x]] = tables[x].astype('int')
-
   return data
-
-
-
 
 data = get_data()
 
@@ -51,5 +47,15 @@ for x,y in data.items():
    st.write(x)
    st.dataframe(y)
    
-st.write("Competition Ratios")
-st.dataframe(data[numerator]/data[denominator])
+st.write("Competition Ratios: " + numerator + " vs " + denominator)
+st.set_page_config(layout="wide")
+competition = data[numerator]/data[denominator]
+st.dataframe(competition)
+col1, col2 = st.columns(2)
+
+with col1:
+   st.write(numerator)
+   st.dataframe(data[numerator])
+with col2:
+  st.write(denominator)
+  st.dataframe(data[denominator])
