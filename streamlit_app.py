@@ -28,9 +28,9 @@ def get_data():
       data[table_names[x]] = tables[x].astype('int')
   return data
 
+st.set_page_config(layout="wide")
 data = get_data()
 
-st.set_page_config(layout="wide")
 
 st.header('UK vs EU and international graduates competition for training places')
 st.write('Data is pulled from https://medical.hee.nhs.uk/medical-training-recruitment/medical-specialty-training/equality-and-diversity/equality-and-diversity-2023-recruitment-data/country-of-qualification-2023-recruitment-data')
